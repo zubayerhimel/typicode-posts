@@ -31,10 +31,10 @@ const PostTimeLine = () => {
     <>
       <ol className='relative border-s border-gray-200 dark:border-gray-700'>
         {sortedMergedPosts.map((post: MergedPost) => (
-          <li className='mb-10 ms-4'>
+          <li className='mb-10 ms-4' key={post.id}>
             <div className='absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700'></div>
             <h3 className='text-xl font-semibold text-orange-900 dark:text-orange-600'>{post.title}</h3>
-            <h3 className='text-md mb-2 font-medium text-gray-900 dark:text-gray-400'>{post.name}</h3>
+            <h3 className='text-sm mb-2 mt-1 font-medium text-gray-900 dark:text-gray-400'>{post.name}</h3>
             <p className='mb-4 text-base font-normal text-gray-500 dark:text-gray-400'>{post.body}</p>
           </li>
         ))}
