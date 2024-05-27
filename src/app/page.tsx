@@ -1,12 +1,9 @@
-import TimeLine from "@/components/timeline";
+import PostTimeLine from "@/components/post-time-line";
 
 export default async function Home() {
-  // console.log(userData)
-
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <h1>Hello there</h1>
-      <TimeLine />
+    <main className='container p-24 max-w-4xl mx-auto'>
+      <PostTimeLine />
     </main>
   );
 }
