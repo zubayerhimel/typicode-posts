@@ -2,6 +2,7 @@
 
 import { useGetPosts, useGetUsers } from "@/api";
 import { MergedPost, Post, User } from "./types";
+import PostSkeleton from "./post-skeleton";
 
 const PostTimeLine = () => {
   const { data: userData, isLoading: loadingUserData } = useGetUsers();
@@ -19,18 +20,12 @@ const PostTimeLine = () => {
   };
 
   if (loadingUserData || loadingPosts) {
-    return <h1>Loading</h1>;
+    return <PostSkeleton />;
   }
   const mergedPosts: MergedPost[] = mergePostsWithUsers(postData, userData);
 
   // Sort the mergedPosts in descending order of post id
   const sortedMergedPosts = mergedPosts.sort((a, b) => b.id - a.id);
-
-  console.log(sortedMergedPosts);
-
-  if (loadingUserData || loadingPosts) {
-    return <h1>Loading</h1>;
-  }
 
   return (
     <>
